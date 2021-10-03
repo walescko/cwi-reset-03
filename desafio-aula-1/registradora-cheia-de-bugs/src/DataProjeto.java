@@ -45,4 +45,16 @@ public class DataProjeto {
 
         return diaUtil && isHorarioFuncionamento && isMinutoFuncionamento;
     }
+    //Acrescetei os métodos getters para imprirmir a data do dia nos bug.
+    public static boolean getDiaUtil() {
+        return diaUtil;
+    }
+
+    public static int getHora() {
+        return hora;
+    }
+
+    public static int getMinuto() {
+        return minuto;
+    }
 }
