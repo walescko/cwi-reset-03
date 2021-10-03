@@ -2,7 +2,6 @@ package br.com.cwi.reset.projeto1;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.IntToDoubleFunction;
 
 public class Exercicios1 {
 
@@ -15,11 +14,7 @@ public class Exercicios1 {
     }
 
     public Double calcularMedia(List<Integer> numeros) {
-        int soma = 0;
-        for (int i = 0; i < numeros.size(); i++){
-          soma += numeros.get(i);
-        }
-        double media = soma / numeros.size();
+        double media = (double)somarLista(numeros) / numeros.size();
         return media;
     }
 
@@ -34,14 +29,28 @@ public class Exercicios1 {
         return maior;
     }
 
-    public String obterPalavraInvertida(String palavra) {
-
-
-        return "edcba";
+    public String obterPalavraInvertida(String palavra) { //baseado na solução apresentada.
+        String inverse = "";
+        for (int i = palavra.length()-1; i >= 0; i--){
+            inverse += palavra.charAt(i);
+        }
+        return inverse;
     }
 
     public List<Integer> ordenarLista(List<Integer> numeros) {
-        return Arrays.asList(1, 2, 3, 4, 5);
+        Integer[] pos = numeros.toArray(new Integer[numeros.size()]);
+        Integer auxiliar = 0;
+        for (int i = 0; i < numeros.size()-1; i++) {
+            for (int j = i + 1; j < numeros.size(); j++) {
+
+                if (pos[i] > pos[j]) {
+                    auxiliar = pos[i];
+                    pos[i] = pos[j];
+                    pos[j] = auxiliar;
+                }
+            }
+        }
+        return Arrays.asList(pos);
     }
 }
 
