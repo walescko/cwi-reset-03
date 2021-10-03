@@ -36,12 +36,15 @@ public class Registradora {
 
     private static void primeiroBug() {
         DataProjeto.criarDataComCozinhaFuncionando();
+        System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
+
         String item = "sanduiche"; //na classe RelacaoPesoPreco está "sanduba"
         int quantidade = 4;
 
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        System.out.println("----");
     }
 
     private static void segundoBug() {
@@ -52,6 +55,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        System.out.println("----");
     }
 
     private static void terceiroBug() {
@@ -62,6 +66,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        System.out.println("----");
     }
 
     private static void quartoBug() {
@@ -73,6 +78,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        System.out.println("----");
 
         // Cliente 2
         String item2 = "sanduiche";
@@ -81,6 +87,7 @@ public class Registradora {
         double precoTotal2 = registrarItem(item2, quantidade2);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal2));
+        System.out.println("----");
     }
 
     private static void quintoBug() {
@@ -91,6 +98,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        System.out.println("----");
     }
 
     private static void sextoBug() {
@@ -110,6 +118,7 @@ public class Registradora {
         double precoTotal2 = registrarItem(item2, quantidade2);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal2));
+        System.out.println("----");
     }
 
 }
