@@ -1,17 +1,20 @@
-
+//Próximas etapas
+//Criar uma classe/função para controle do estoque e solicitar a reposição.
+//Imprimir após cada pedido se é necessário repor o estoque e imprimir a reposição.
 public class Registradora {
 
     public static void main(String[] args) {
+        System.out.println("\n--- Bug 1 ---");
         primeiroBug();
-
+        System.out.println("\n--- Bug 2 ---");
         segundoBug();
-
+        System.out.println("\n--- Bug 3 ---");
         terceiroBug();
-
+        System.out.println("\n--- Bug 4 ---");
         quartoBug();
-
+        System.out.println("\n--- Bug 5 ---");
         quintoBug();
-
+        System.out.println("\n--- Bug 6 ---");
         sextoBug();
     }
 
@@ -35,19 +38,20 @@ public class Registradora {
     }
 
     private static void primeiroBug() {
+
         DataProjeto.criarDataComCozinhaFuncionando();
         System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
-        String item = "sanduiche"; //na classe RelacaoPesoPreco está "sanduba"
+        String item = "sanduiche";
         int quantidade = 4;
 
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal));
-        System.out.println("----");
-    }
+            }
 
     private static void segundoBug() {
+
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
         System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
@@ -57,7 +61,6 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal));
-        System.out.println("----");
     }
 
     private static void terceiroBug() {
@@ -70,7 +73,6 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal));
-        System.out.println("----");
     }
 
     private static void quartoBug() {
@@ -92,7 +94,6 @@ public class Registradora {
         double precoTotal2 = registrarItem(item2, quantidade2);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal2));
-        System.out.println("----");
     }
 
     private static void quintoBug() {
@@ -105,7 +106,6 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal));
-        System.out.println("----");
     }
 
     private static void sextoBug() {
@@ -127,7 +127,6 @@ public class Registradora {
         double precoTotal2 = registrarItem(item2, quantidade2);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal2));
-        System.out.println("----");
     }
 
 }
