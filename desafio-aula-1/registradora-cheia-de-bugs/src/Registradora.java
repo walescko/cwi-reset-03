@@ -20,7 +20,7 @@ public class Registradora {
 
     private static double registrarItem(String item, int quantidade) {
         //verificar se há produtos suficientes no estoque
-        ItensPorQuantidade.Estoque();
+        Estoque.EstoquePadaria();
 
         double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
 
@@ -43,7 +43,7 @@ public class Registradora {
         }
 
 
-        ItensPorQuantidade.baixaEstoque(item, quantidade);
+        Estoque.baixaEstoque(item, quantidade);
         return precoItem;
 
     }
@@ -59,7 +59,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal));
-        ItensPorQuantidade.Estoque();
+        Estoque.EstoquePadaria();
             }
 
     private static void segundoBug() {

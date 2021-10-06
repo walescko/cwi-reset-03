@@ -1,4 +1,4 @@
-public class ItensPorQuantidade {
+public class Estoque {
 
     static int pao = 3600; //peso
     static int torta = 4; //unidade de torta, cliente pede por fatia, então temos aqui 4 tortas totalizando 64 fatias
@@ -7,7 +7,7 @@ public class ItensPorQuantidade {
     static int cafe = 20; //unidade
 
     //Estoque de Sanduiche
-    static void Estoque() {
+    static void EstoquePadaria() {
         System.out.println("Sanduiches: " + sanduiche);
     }
 
