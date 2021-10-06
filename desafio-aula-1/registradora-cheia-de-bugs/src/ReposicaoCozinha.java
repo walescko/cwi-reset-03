@@ -2,15 +2,14 @@ public class ReposicaoCozinha {
 
     static void reporItem(String item) {
         if ("pao".equals(item)) {
-            Estoque.pao = 3600;
-            //solicitar repor os pães que são vendidos por unidade, mas o que temos aqui é peso em gramas.
+            Estoque.pao += 3600;
         }
         if ("torta".equals(item)) {
-            Estoque.torta = 4;
 
+            Estoque.fatia += 4*16;
         }
         if ("sanduiche".equals(item)) {
-            Estoque.sanduiche = 20;
+            Estoque.sanduiche += 20;
         }
     }
 }
