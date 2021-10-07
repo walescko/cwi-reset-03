@@ -25,30 +25,8 @@ public class Registradora {
 
     private static double registrarItem(String item, int quantidade) {
 
-                if (QuantidadeMinimaItem.precisaReposicao(item)) {
+        ReposicaoItem.ReposicaoItem(item, quantidade);
 
-                        if ("pao".equals(item) || "sanduiche".equals(item) || "torta".equals(item)) {
-                            if (DataProjeto.cozinhaEmFuncionamento()) {
-
-                                do {
-                                    ReposicaoCozinha.reporItem(item);
-                                } while ((Estoque.getPao() <= quantidade) || (Estoque.getSanduiche() <= quantidade) || (Estoque.getTorta() <= quantidade));
-
-                            } else if (!DataProjeto.cozinhaEmFuncionamento()) {
-                                if (Estoque.getPao() < quantidade || Estoque.getSanduiche() < quantidade || Estoque.getFatia() < quantidade){
-                                    System.out.println("Cozinha Fechada!");
-                                }
-                            }
-                        }
-
-
-                    do {
-                        if ("leite".equals(item) || "cafe".equals(item)) {
-                        ReposicaoFornecedor.reporItem(item);
-                        }
-                    } while ((Estoque.getCafe() <= quantidade) || (Estoque.getLeite() <= quantidade));
-
-                }
                 double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
                 if (!DataProjeto.cozinhaEmFuncionamento()){
                     if ("pao".equals(item) || "torta".equals(item) || "sanduiche".equals(item)){
@@ -58,10 +36,9 @@ public class Registradora {
                 }
 
                 Estoque.baixaEstoque(item, quantidade);
-
+                ReposicaoItem.ReposicaoItem(item, quantidade);
                 return precoItem;
         }
-
 
     private static void primeiroBug() {
 
