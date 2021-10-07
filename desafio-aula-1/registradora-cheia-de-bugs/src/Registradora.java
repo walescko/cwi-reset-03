@@ -4,21 +4,21 @@
 public class Registradora {
 
     public static void main(String[] args) {
-        System.out.println("\n--- Bug 1 ---");
-        primeiroBug();
-        Estoque.EstoquePadaria();
+//        System.out.println("\n--- Bug 1 ---");
+//        primeiroBug();
+//        Estoque.EstoquePadaria();
         System.out.println("\n--- Bug 2 ---");
         segundoBug();
         Estoque.EstoquePadaria();
-        System.out.println("\n--- Bug 3 ---");
-        terceiroBug();
-        Estoque.EstoquePadaria();
-        System.out.println("\n--- Bug 4 ---");
-        quartoBug();
-        Estoque.EstoquePadaria();
-        System.out.println("\n--- Bug 5 ---");
-        quintoBug();
-        Estoque.EstoquePadaria();
+//        System.out.println("\n--- Bug 3 ---");
+//        terceiroBug();
+//        Estoque.EstoquePadaria();
+//        System.out.println("\n--- Bug 4 ---");
+//        quartoBug();
+//        Estoque.EstoquePadaria();
+//        System.out.println("\n--- Bug 5 ---");
+//        quintoBug();
+//        Estoque.EstoquePadaria();
         System.out.println("\n--- Bug 6 ---");
         sextoBug();
         Estoque.EstoquePadaria();
@@ -26,7 +26,7 @@ public class Registradora {
 
     private static double registrarItem(String item, int quantidade) {
 
-          double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
+
 
 
                 if (QuantidadeMinimaItem.precisaReposicao(item)) {
@@ -37,9 +37,12 @@ public class Registradora {
                                     ReposicaoCozinha.reporItem(item);
                             } while ((Estoque.getPao() <= quantidade) || (Estoque.getSanduiche() <= quantidade) || (Estoque.getTorta() <= quantidade));
                             } else if (!DataProjeto.cozinhaEmFuncionamento()) {
-                                System.out.println("Cozinha Fechada!");
+                                if (Estoque.getPao() < quantidade || Estoque.getSanduiche() < quantidade || Estoque.getFatia() < quantidade){
+                                    System.out.println("Cozinha Fechada!");
+                            }
                             }
                         }
+
 
                     do {
                     if ("leite".equals(item) || "cafe".equals(item)) {
@@ -47,6 +50,8 @@ public class Registradora {
                     }
                     } while ((Estoque.getCafe() <= quantidade) || (Estoque.getLeite() <= quantidade));
                 }
+            double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
+        //verificação da quantidade no estoque
             Estoque.baixaEstoque(item, quantidade);
             return precoItem;
         }
