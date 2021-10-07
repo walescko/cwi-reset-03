@@ -6,52 +6,55 @@ public class Registradora {
     public static void main(String[] args) {
         System.out.println("\n--- Bug 1 ---");
         primeiroBug();
+        Estoque.EstoquePadaria();
         System.out.println("\n--- Bug 2 ---");
         segundoBug();
+        Estoque.EstoquePadaria();
         System.out.println("\n--- Bug 3 ---");
         terceiroBug();
+        Estoque.EstoquePadaria();
         System.out.println("\n--- Bug 4 ---");
         quartoBug();
+        Estoque.EstoquePadaria();
         System.out.println("\n--- Bug 5 ---");
         quintoBug();
+        Estoque.EstoquePadaria();
         System.out.println("\n--- Bug 6 ---");
         sextoBug();
-    }
+        Estoque.EstoquePadaria();
+   }
 
     private static double registrarItem(String item, int quantidade) {
-        //verificar se há produtos suficientes no estoque
-        Estoque.EstoquePadaria();
 
-        double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
-
-        //Fazer o método para chamar o Itens Por Quantidade para controle do estoque
+          double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
 
 
+                if (QuantidadeMinimaItem.precisaReposicao(item)) {
 
+                        if ("pao".equals(item) || "sanduiche".equals(item) || "torta".equals(item)) {
+                            if (DataProjeto.cozinhaEmFuncionamento()) {
+                                do {
+                                    ReposicaoCozinha.reporItem(item);
+                            } while ((Estoque.getPao() <= quantidade) || (Estoque.getSanduiche() <= quantidade) || (Estoque.getTorta() <= quantidade));
+                            } else if (!DataProjeto.cozinhaEmFuncionamento()) {
+                                System.out.println("Cozinha Fechada!");
+                            }
+                        }
 
-        //Condições para reposição dos itens
-        if (QuantidadeMinimaItem.precisaReposicao(item)) {
-            if ("pao".equals(item) || "sanduiche".equals(item) || "torta".equals(item)) {
-                if (!DataProjeto.cozinhaEmFuncionamento()) {
-                    System.out.println("Cozinha fechada!");
+                    do {
+                    if ("leite".equals(item) || "cafe".equals(item)) {
+                        ReposicaoFornecedor.reporItem(item);
+                    }
+                    } while ((Estoque.getCafe() <= quantidade) || (Estoque.getLeite() <= quantidade));
                 }
-            }
-
-            if ("leite".equals(item) || "cafe".equals(item)) {
-                ReposicaoFornecedor.reporItem(item);
-            }
+            Estoque.baixaEstoque(item, quantidade);
+            return precoItem;
         }
 
-
-        Estoque.baixaEstoque(item, quantidade);
-        return precoItem;
-
-    }
 
     private static void primeiroBug() {
 
         DataProjeto.criarDataComCozinhaFuncionando();
-        System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
         String item = "sanduiche";
         int quantidade = 4;
@@ -59,13 +62,11 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: R$ %.2f", precoTotal));
-        Estoque.EstoquePadaria();
-            }
+    }
 
     private static void segundoBug() {
 
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
-        System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
         String item = "torta";
         int quantidade = 10;
@@ -77,7 +78,6 @@ public class Registradora {
 
     private static void terceiroBug() {
         DataProjeto.criarDataComCozinhaFuncionando();
-        System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
         String item = "cafe";
         int quantidade = 40;
@@ -89,7 +89,6 @@ public class Registradora {
 
     private static void quartoBug() {
         DataProjeto.criarDataComCozinhaFuncionando();
-        System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
         // Cliente 1
         String item = "sanduiche";
@@ -110,7 +109,6 @@ public class Registradora {
 
     private static void quintoBug() {
         DataProjeto.criarDataComCozinhaFuncionando();
-        System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
         String item = "pao";
         int quantidade = 10;
@@ -122,7 +120,6 @@ public class Registradora {
 
     private static void sextoBug() {
         DataProjeto.criarDataComCozinhaEncerradaSemDiaUtil();
-        System.out.println("Dia util? " +DataProjeto.getDiaUtil() + ", horário: "+ DataProjeto.getHora()+ ":"+ DataProjeto.getMinuto()); //apresetando data
 
         // Cliente 1
         String item = "sanduiche";
