@@ -10,7 +10,7 @@ public class QuantidadeMinimaItem {
         }
 
         if ("sanduiche".equals(item)) {
-            return Estoque.sanduiche <= 1;
+            return Estoque.sanduiche == 1;
         }
 
         if ("cafe".equals(item)) {
