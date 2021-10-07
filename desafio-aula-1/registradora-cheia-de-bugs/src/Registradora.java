@@ -13,8 +13,8 @@ public class Registradora {
         System.out.println("\n--- Bug 3 ---");
         terceiroBug();
 
-//        System.out.println("\n--- Bug 4 ---");
-//        quartoBug();
+        System.out.println("\n--- Bug 4 ---");
+        quartoBug();
 
         System.out.println("\n--- Bug 5 ---");
         quintoBug();
@@ -25,18 +25,20 @@ public class Registradora {
 
     private static double registrarItem(String item, int quantidade) {
 
-        ReposicaoItem.ReposicaoItem(item, quantidade);
 
                 double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
-                if (!DataProjeto.cozinhaEmFuncionamento()){
-                    if ("pao".equals(item) || "torta".equals(item) || "sanduiche".equals(item)){
-                        if (Estoque.getPao() < quantidade || Estoque.getSanduiche() < quantidade || Estoque.getFatia() < quantidade)
-                        precoItem = 0;
-                    }
-                }
 
                 Estoque.baixaEstoque(item, quantidade);
                 ReposicaoItem.ReposicaoItem(item, quantidade);
+
+                if (!DataProjeto.cozinhaEmFuncionamento()){
+
+                    if ("pao".equals(item) || "torta".equals(item) || "sanduiche".equals(item)) {
+                        if (Estoque.getPao() < quantidade || Estoque.getSanduiche() < quantidade || Estoque.getFatia() < quantidade){precoItem = 0;
+                            System.out.println("Cozinha Fechada");
+                        }
+                    }
+                }
                 return precoItem;
         }
 
