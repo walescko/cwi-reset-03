@@ -4,56 +4,62 @@
 public class Registradora {
 
     public static void main(String[] args) {
-//        System.out.println("\n--- Bug 1 ---");
-//        primeiroBug();
-//        Estoque.EstoquePadaria();
+        System.out.println("\n--- Bug 1 ---");
+        primeiroBug();
+
         System.out.println("\n--- Bug 2 ---");
         segundoBug();
-        Estoque.EstoquePadaria();
-//        System.out.println("\n--- Bug 3 ---");
-//        terceiroBug();
-//        Estoque.EstoquePadaria();
+
+        System.out.println("\n--- Bug 3 ---");
+        terceiroBug();
+
 //        System.out.println("\n--- Bug 4 ---");
 //        quartoBug();
-//        Estoque.EstoquePadaria();
-//        System.out.println("\n--- Bug 5 ---");
-//        quintoBug();
-//        Estoque.EstoquePadaria();
+
+        System.out.println("\n--- Bug 5 ---");
+        quintoBug();
+
         System.out.println("\n--- Bug 6 ---");
         sextoBug();
-        Estoque.EstoquePadaria();
    }
 
     private static double registrarItem(String item, int quantidade) {
-
-
-
 
                 if (QuantidadeMinimaItem.precisaReposicao(item)) {
 
                         if ("pao".equals(item) || "sanduiche".equals(item) || "torta".equals(item)) {
                             if (DataProjeto.cozinhaEmFuncionamento()) {
+
                                 do {
                                     ReposicaoCozinha.reporItem(item);
-                            } while ((Estoque.getPao() <= quantidade) || (Estoque.getSanduiche() <= quantidade) || (Estoque.getTorta() <= quantidade));
+                                } while ((Estoque.getPao() <= quantidade) || (Estoque.getSanduiche() <= quantidade) || (Estoque.getTorta() <= quantidade));
+
                             } else if (!DataProjeto.cozinhaEmFuncionamento()) {
                                 if (Estoque.getPao() < quantidade || Estoque.getSanduiche() < quantidade || Estoque.getFatia() < quantidade){
                                     System.out.println("Cozinha Fechada!");
-                            }
+                                }
                             }
                         }
 
 
                     do {
-                    if ("leite".equals(item) || "cafe".equals(item)) {
+                        if ("leite".equals(item) || "cafe".equals(item)) {
                         ReposicaoFornecedor.reporItem(item);
-                    }
+                        }
                     } while ((Estoque.getCafe() <= quantidade) || (Estoque.getLeite() <= quantidade));
+
                 }
-            double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
-        //verificação da quantidade no estoque
-            Estoque.baixaEstoque(item, quantidade);
-            return precoItem;
+                double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
+                if (!DataProjeto.cozinhaEmFuncionamento()){
+                    if ("pao".equals(item) || "torta".equals(item) || "sanduiche".equals(item)){
+                        if (Estoque.getPao() < quantidade || Estoque.getSanduiche() < quantidade || Estoque.getFatia() < quantidade)
+                        precoItem = 0;
+                    }
+                }
+
+                Estoque.baixaEstoque(item, quantidade);
+
+                return precoItem;
         }
 
 
