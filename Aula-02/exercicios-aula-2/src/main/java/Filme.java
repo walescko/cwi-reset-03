@@ -22,6 +22,12 @@ public class Filme {
         System.out.println("Descrição Filme: " + this.descricaoFilme);
         System.out.println("Lançamento: " + this.anoLancamento);
         System.out.println("Avaliação: " + this.avaliacaoFilme);
-        DiretorFilme.diretorApresentacao();
+        //Pessoa.Apresentacao();
+    }
+
+    public void AvaliacaoFilme() throws AvaliacaoForaDoPadraoException{
+        if (avaliacaoFilme < 0 || avaliacaoFilme > 5){
+            throw new AvaliacaoForaDoPadraoException();
+        }
     }
 }
