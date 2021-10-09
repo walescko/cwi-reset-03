@@ -14,4 +14,12 @@ public class Filme {
         this.avaliacaoFilme = avaliacaoFilme;
         this.diretor = diretor;
     }
+
+    public void apresentarFilme(){
+        System.out.println("Título: " + this.tituloFilme);
+        System.out.println("Descrição Filme: " + this.descricaoFilme);
+        System.out.println("Lançamento" + this.anoLancamento);
+        System.out.println("Avaliação: " + this.avaliacaoFilme);
+        DiretorFilme.diretorEstatistica();
+    }
 }

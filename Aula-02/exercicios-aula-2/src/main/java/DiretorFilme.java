@@ -11,4 +11,9 @@ public class DiretorFilme {
     }
 
 
+    public static void diretorEstatistica() {
+        System.out.println("Nome: " + nomeDiretor);
+        System.out.println("Idade: " + idadeDiretor);
+        System.out.println("Filmes dirigidos:" + filmesDirigidos);
+    }
 }
