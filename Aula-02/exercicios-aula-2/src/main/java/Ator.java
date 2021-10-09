@@ -12,12 +12,12 @@ public class Ator {
         this.genero = genero;
     }
 
-    public void apresentacaoAtor(){
+    public void apresentacaoAtor() {
         System.out.println(" ---- Ator ---- ");
         System.out.println("Nome: " + getNomeAtor());
         System.out.println("Idade: " + getIdadeAtor());
         System.out.println("Oscar: " + getOscar());
-        System.out.println("Genero: " + getGenero() );
+        System.out.println("Genero: " + genero.getDescricao());
         System.out.println(" ----------------- ");
     }
 
@@ -33,7 +33,4 @@ public class Ator {
         return oscar;
     }
 
-    public Genero getGenero() {
-        return genero;
-    }
 }
