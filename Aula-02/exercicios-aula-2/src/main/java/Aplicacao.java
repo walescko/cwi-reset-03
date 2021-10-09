@@ -2,9 +2,9 @@ public class Aplicacao {
 
     public static void main(String[] args){
 
-        Pessoa diretor01 = new DiretorFilme("Gaspar Lucas Spilberg", 44, Genero.FEMININO, 5);
+        DiretorFilme diretor01 = new DiretorFilme("Gaspar Lucas Spilberg", 45, Genero.MASCULINO, 15);
 
-        Pessoa ator01 = new Ator("Pierce Browson", 55, Genero.MASCULINO, 3);
+        Ator ator01 = new Ator("Pierce Browson", 65, Genero.MASCULINO, 13);
 
 //        Filme filme01 = new Filme("A volta dos que nao foram", "Aventura", 144,
 //                1985, 5, diretor01);
