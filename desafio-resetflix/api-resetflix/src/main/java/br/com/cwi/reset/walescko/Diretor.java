@@ -2,7 +2,7 @@ package br.com.cwi.reset.walescko;
 
 import java.time.LocalDate;
 
-public class Diretor {
+public class Diretor extends Pessoa {
 
     private Integer id;
 
