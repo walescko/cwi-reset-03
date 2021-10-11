@@ -7,4 +7,10 @@ public class PersonagemAtor {
     private String nomePersonagem;
     private TipoAtuacao tipoAtuacao;
 
+    public PersonagemAtor(Integer id, Ator ator, String nomePersonagem, TipoAtuacao tipoAtuacao) {
+        this.id = id;
+        this.ator = ator;
+        this.nomePersonagem = nomePersonagem;
+        this.tipoAtuacao = tipoAtuacao;
+    }
 }
