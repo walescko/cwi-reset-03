@@ -5,13 +5,13 @@ import jdk.jshell.Snippet;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Ator extends Pessoa {
+public class AtorRequest extends Pessoa {
 
     private String id;
     private StatusCarreira statusCarreira;
     private String nome;
 
-    public Ator(String nome, LocalDate dataNascimento, LocalDate inicioAtividade, StatusCarreira statusCarreira, String id){
+    public AtorRequest(String nome, LocalDate dataNascimento, LocalDate inicioAtividade, StatusCarreira statusCarreira, String id){
         super(nome, dataNascimento, inicioAtividade);
         this.statusCarreira = statusCarreira;
         id = UUID.randomUUID().toString();
