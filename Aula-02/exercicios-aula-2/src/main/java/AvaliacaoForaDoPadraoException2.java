@@ -1,0 +1,2 @@
+public class AvaliacaoForaDoPadraoException2 {
+}
