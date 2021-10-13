@@ -2,12 +2,18 @@ package br.com.cwi.reset.walescko;
 
 import java.time.LocalDate;
 
-public class Diretor extends Pessoa {
+public class Diretor {
 
-    private Integer id;
+    protected String id;
+    protected String nome;
+    protected LocalDate dataNascimento;
+    protected LocalDate anoInicioAtividade;
 
-    public Diretor(String nome, LocalDate dataNascimento, LocalDate anoInicioAtividade, Integer id) {
-        super(nome, dataNascimento, anoInicioAtividade);
+
+    public Diretor(String nome, LocalDate dataNascimento, LocalDate anoInicioAtividade) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.anoInicioAtividade = anoInicioAtividade;
         this.id = id;
     }
 }
