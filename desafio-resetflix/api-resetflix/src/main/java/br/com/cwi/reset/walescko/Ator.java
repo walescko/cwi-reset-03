@@ -1,32 +1,52 @@
 package br.com.cwi.reset.walescko;
 
-import jdk.jshell.Snippet;
-
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Ator extends Pessoa {
+public class Ator {
 
-    private String id;
-    private StatusCarreira statusCarreira;
-    private String nome;
+    protected String id;
+    protected String nome;
+    protected LocalDate dataNascimento;
+    protected LocalDate anoInicioAtividade;
+    protected StatusCarreira statusCarreira;
 
-    public Ator(String nome, LocalDate dataNascimento, LocalDate inicioAtividade, StatusCarreira statusCarreira, String id) {
-        super(nome, dataNascimento, inicioAtividade);
+    public Ator(String nome, LocalDate dataNascimento, LocalDate anoInicioAtividade,
+                StatusCarreira statusCarreira) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.anoInicioAtividade = anoInicioAtividade;
         this.statusCarreira = statusCarreira;
         id = UUID.randomUUID().toString();
         this.id = id;
     }
-    public void NomeAtor() throws RegrasExceptionAtor{
-        if (this.nome == nome){
-            throw new RegrasExceptionAtor();
 
-
-        }
+    public void AtorId(){
+        id = UUID.randomUUID().toString();
+        this.id = id;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public StatusCarreira getStatusCarreira() {
+        return statusCarreira;
+    }
+
+    public void setStatusCarreira(StatusCarreira statusCarreira) {
+        this.statusCarreira = statusCarreira;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
-//    public String getNome() {
-//        return nome;
-//    }
-//}
