@@ -1,8 +1,13 @@
 package br.com.cwi.reset.walescko;
 
-import java.time.LocalDate;
+import br.com.cwi.reset.walescko.mensagemExceptions.AtorAnoInicioAtividadeException;
 
-public class AtorRequest{
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class AtorRequest {
 
     private String nome;
     private LocalDate dataNascimento;
@@ -24,6 +29,7 @@ public class AtorRequest{
         return dataNascimento;
     }
 
+
     public StatusCarreira getStatusCarreira() {
         return statusCarreira;
     }
@@ -33,13 +39,21 @@ public class AtorRequest{
     }
 
 
-    public void Apresentacao(){
+    public void Apresentacao() {
         System.out.println(this.nome);
         System.out.println(this.dataNascimento);
         System.out.println(this.statusCarreira);
         System.out.println(this.anoInicioAtividade);
-     }
+    }
 
+
+//    public void AnoInicioAtividade() throws AtorAnoInicioAtividadeException {
+//        //LocalDate nascimento = Date.valueOf(dataNascimento);
+//        SimpleDateFormat anoNascimento = new SimpleDateFormat("yyyy");
+//        if (anoInicioAtividade < anoNascimento) {
+//            throw new AtorAnoInicioAtividadeException();
+//        }
+//    }
 }
 
 

@@ -1,26 +1,36 @@
 package br.com.cwi.reset.walescko;
 
+import br.com.cwi.reset.walescko.mensagemExceptions.AtorAnoInicioAtividadeException;
+
 import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
 
 public class AtorService{
 
     private FakeDatabase fakeDatabase;
-    private Ator ator;
 
     public AtorService(FakeDatabase fakeDatabase){
         this.fakeDatabase = fakeDatabase;
     }
 
-    public void criarAtor(String nome, LocalDate dataNascimento, LocalDate inicioAtividade, StatusCarreira statusCarreira, String id){
-        try {
-        Ator ator = new Ator(nome, dataNascimento, inicioAtividade, statusCarreira, id);
-        } catch (RegrasExceptionAtor e){
-            System.out.println(e.getMessage());
-        }
+    public void criarAtor(AtorRequest atorRequest){
+        Ator paraAtor = passagem(atorRequest);
+        fakeDatabase.persisteAtor(paraAtor);
+    }
 
-        ;
+    private Ator passagem (AtorRequest atorRequest){
+        Ator ator = new Ator(atorRequest.getNome(),
+                atorRequest.getDataNascimento(),
+                atorRequest.getAnoInicioAtividade(),
+                atorRequest.getStatusCarreira());
+        return ator;
+    }
+
+    public void AnoInicioAtividade() throws AtorAnoInicioAtividadeException{
+
     }
 
 
 
-    }
+}

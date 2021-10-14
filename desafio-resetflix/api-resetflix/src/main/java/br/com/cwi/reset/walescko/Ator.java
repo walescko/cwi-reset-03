@@ -1,6 +1,7 @@
 package br.com.cwi.reset.walescko;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Ator {
@@ -8,10 +9,10 @@ public class Ator {
     protected String id;
     protected String nome;
     protected LocalDate dataNascimento;
-    protected LocalDate anoInicioAtividade;
+    protected Integer anoInicioAtividade;
     protected StatusCarreira statusCarreira;
 
-    public Ator(String nome, LocalDate dataNascimento, LocalDate anoInicioAtividade,
+    public Ator(String nome, LocalDate dataNascimento, Integer anoInicioAtividade,
                 StatusCarreira statusCarreira) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;

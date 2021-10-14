@@ -7,6 +7,7 @@ import java.util.List;
 public class FakeDatabase {
 
     private List<Ator> atores = new ArrayList<>();
+
     private List<Diretor> diretores = new ArrayList<>();
 
     public void persisteAtor(Ator ator) {
