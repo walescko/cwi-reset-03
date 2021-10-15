@@ -1,4 +1,6 @@
-package br.com.cwi.reset.walescko;
+package br.com.cwi.reset.walescko.models;
+
+import br.com.cwi.reset.walescko.enums.Genero;
 
 import java.time.LocalDate;
 import java.util.List;

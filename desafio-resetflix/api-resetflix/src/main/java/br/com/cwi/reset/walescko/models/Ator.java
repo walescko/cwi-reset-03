@@ -1,7 +1,8 @@
-package br.com.cwi.reset.walescko;
+package br.com.cwi.reset.walescko.models;
+
+import br.com.cwi.reset.walescko.enums.StatusCarreira;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Ator {

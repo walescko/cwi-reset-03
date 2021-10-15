@@ -1,4 +1,7 @@
-package br.com.cwi.reset.walescko;
+package br.com.cwi.reset.walescko.models;
+
+import br.com.cwi.reset.walescko.enums.TipoAtuacao;
+import br.com.cwi.reset.walescko.models.Ator;
 
 public class PersonagemAtor {
 
