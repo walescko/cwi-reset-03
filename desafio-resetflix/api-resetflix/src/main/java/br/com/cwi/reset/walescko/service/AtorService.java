@@ -1,10 +1,9 @@
-package br.com.cwi.reset.walescko;
+package br.com.cwi.reset.walescko.service;
 
+import br.com.cwi.reset.walescko.Ator;
+import br.com.cwi.reset.walescko.FakeDatabase;
 import br.com.cwi.reset.walescko.mensagemExceptions.AtorAnoInicioAtividadeException;
-
-import java.time.LocalDate;
-import java.util.List;
-import java.util.UUID;
+import br.com.cwi.reset.walescko.request.AtorRequest;
 
 public class AtorService{
 
@@ -13,7 +12,7 @@ public class AtorService{
     public AtorService(FakeDatabase fakeDatabase){
         this.fakeDatabase = fakeDatabase;
     }
-
+    //Aqui começa o que estamos fazendo
     public void criarAtor(AtorRequest atorRequest){
         Ator paraAtor = passagem(atorRequest);
         fakeDatabase.persisteAtor(paraAtor);

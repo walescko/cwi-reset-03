@@ -1,11 +1,8 @@
-package br.com.cwi.reset.walescko;
+package br.com.cwi.reset.walescko.request;
 
-import br.com.cwi.reset.walescko.mensagemExceptions.AtorAnoInicioAtividadeException;
+import br.com.cwi.reset.walescko.enums.StatusCarreira;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class AtorRequest {
 
@@ -25,10 +22,7 @@ public class AtorRequest {
         return nome;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
+    public LocalDate getDataNascimento() { return dataNascimento;}
 
     public StatusCarreira getStatusCarreira() {
         return statusCarreira;

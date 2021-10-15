@@ -1,4 +1,4 @@
-package br.com.cwi.reset.walescko;
+package br.com.cwi.reset.walescko.enums;
 
 public enum Genero {
     ACAO,
