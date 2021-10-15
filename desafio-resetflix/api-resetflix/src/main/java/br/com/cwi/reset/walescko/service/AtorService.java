@@ -1,6 +1,6 @@
 package br.com.cwi.reset.walescko.service;
 
-import br.com.cwi.reset.walescko.Ator;
+import br.com.cwi.reset.walescko.models.Ator;
 import br.com.cwi.reset.walescko.FakeDatabase;
 import br.com.cwi.reset.walescko.mensagemExceptions.AtorAnoInicioAtividadeException;
 import br.com.cwi.reset.walescko.request.AtorRequest;
