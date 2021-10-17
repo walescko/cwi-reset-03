@@ -1,5 +1,8 @@
 package br.com.cwi.reset.walescko;
 
+import br.com.cwi.reset.walescko.models.Ator;
+import br.com.cwi.reset.walescko.models.Diretor;
+
 import java.util.ArrayList;
 import java.util.List;
 
