@@ -6,10 +6,10 @@ public class Filme {
     private Integer duracao;
     private Integer anoLancamento;
     private int avaliacaoFilme; //nota numerica
-    private DiretorFilme diretor;
+    private Diretor diretor;
 
     //Contructor com passagem de parametro
-    public Filme(String tituloFilme, String descricaoFilme, Integer duracao, Integer anoLancamento, int avaliacaoFilme, DiretorFilme diretor) {
+    public Filme(String tituloFilme, String descricaoFilme, Integer duracao, Integer anoLancamento, int avaliacaoFilme, Diretor diretor) {
         this.tituloFilme = tituloFilme;
         this.descricaoFilme = descricaoFilme;
         this.duracao = duracao;
@@ -19,17 +19,58 @@ public class Filme {
     }
 
     public void apresentarFilme(){
-        System.out.println("Título: " + this.tituloFilme);
-        System.out.println("Descrição Filme: " + this.descricaoFilme);
-        System.out.println("Lançamento: " + this.anoLancamento);
-        System.out.println("Avaliação: " + this.avaliacaoFilme);
+        System.out.println("Título: " + this.getTituloFilme());
+        System.out.println("Descrição Filme: " + this.getDescricaoFilme());
+        System.out.println("Lançamento: " + this.getAnoLancamento());
+        System.out.println("Avaliação: " + this.getAvaliacaoFilme());
         //Pessoa.Apresentacao();
     }
 
-}
-//    public AvaliacaoFilme() throws AvaliacaoForaDoPadraoException2 {
-//        if (avaliacaoFilme > 5){
-//            throw new AvaliacaoForaDoPadraoException2();
-//        }
-//    }
+    public String getTituloFilme() {
+        return tituloFilme;
+    }
+
+    public void setTituloFilme(String tituloFilme) {
+        this.tituloFilme = tituloFilme;
+    }
+
+    public String getDescricaoFilme() {
+        return descricaoFilme;
+    }
+
+    public void setDescricaoFilme(String descricaoFilme) {
+        this.descricaoFilme = descricaoFilme;
+    }
+
+    public Integer getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Integer duracao) {
+        this.duracao = duracao;
+    }
+
+    public Integer getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public void setAnoLancamento(Integer anoLancamento) {
+        this.anoLancamento = anoLancamento;
+    }
+
+    public int getAvaliacaoFilme() {
+        return avaliacaoFilme;
+    }
+
+    public void setAvaliacaoFilme(int avaliacaoFilme) {
+        this.avaliacaoFilme = avaliacaoFilme;
+    }
+
+    public Diretor getDiretor() {
+        return diretor;
+    }
+
+    public void setDiretor(Diretor diretor) {
+        this.diretor = diretor;
+    }
 }
