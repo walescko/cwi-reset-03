@@ -17,7 +17,7 @@ public class AtorService {
     }
 
     public void criarAtor(AtorRequest atorRequest) {
-        new Validador().accept(atorRequest.getNome(), atorRequest.getDataNascimento(), atorRequest.getDataNascimento(),
+        new Validador().accept(atorRequest.getNome(), atorRequest.getDataNascimento(),
                 atorRequest.getAnoInicioAtividade(), TipoDominioException.ATOR);
 
         if (atorRequest.getStatusCarreira() ==null){
@@ -34,7 +34,7 @@ public class AtorService {
 
         final Integer idGerado = atoresCadastrados.size() + 1;
 
-        final Ator ator = new Ator(idGerado, atorRequest.getNome(), atoRequest.getDataNascimento(), atorRequest.getStatusCarreira(),
+        final Ator ator = new Ator(idGerado, atorRequest.getNome(), atorRequest.getDataNascimento(), atorRequest.getStatusCarreira(),
                 atorRequest.getAnoInicioAtividade());
 
         fakeDatabase.persisteAtor(ator);
