@@ -13,4 +13,16 @@ public class DiretorRequest {
         this.dataNascimento = dataNascimento;
         this.anoInicioAtividade = anoInicioAtividade;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public Integer getAnoInicioAtividade() {
+        return anoInicioAtividade;
+    }
 }
