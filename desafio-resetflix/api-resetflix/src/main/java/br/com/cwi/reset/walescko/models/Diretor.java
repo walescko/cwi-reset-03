@@ -10,10 +10,26 @@ public class Diretor {
     protected LocalDate anoInicioAtividade;
 
 
-    public Diretor(String nome, LocalDate dataNascimento, LocalDate anoInicioAtividade) {
+    public Diretor(Integer id, String nome, LocalDate dataNascimento, LocalDate anoInicioAtividade) {
+        this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.anoInicioAtividade = anoInicioAtividade;
-        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public LocalDate getAnoInicioAtividade() {
+        return anoInicioAtividade;
     }
 }
