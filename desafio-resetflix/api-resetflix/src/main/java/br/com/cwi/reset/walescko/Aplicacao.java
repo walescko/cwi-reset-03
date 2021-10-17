@@ -27,12 +27,6 @@ public class Aplicacao {
 
 //        atorRequest.Apresentacao();//teste de criação do Ator.
 
-//        try {
-//            atorRequest.AnoInicioAtividade();
-//        } catch (AtorAnoInicioAtividadeException e){
-//            System.out.println(e.getMessage());
-//        }
-
         List<Ator> atores = fakeDatabase.recuperaAtores();
 
         System.out.println("Deve conter 1 ator, quantidade encontrada: " + atores.size());
