@@ -7,48 +7,40 @@ import java.util.UUID;
 
 public class Ator {
 
-    protected String id;
+    protected Integer id;
     protected String nome;
     protected LocalDate dataNascimento;
     protected Integer anoInicioAtividade;
     protected StatusCarreira statusCarreira;
 
-    public Ator(String nome, LocalDate dataNascimento, Integer anoInicioAtividade,
+    public Ator(Integer id, String nome, LocalDate dataNascimento, Integer anoInicioAtividade,
                 StatusCarreira statusCarreira) {
+        this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.anoInicioAtividade = anoInicioAtividade;
         this.statusCarreira = statusCarreira;
-        id = UUID.randomUUID().toString();
-        this.id = id;
     }
 
-    public void AtorId(){
-        id = UUID.randomUUID().toString();
-        this.id = id;
-    }
-
-    public String getId() {
+    public Integer getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public StatusCarreira getStatusCarreira() {
-        return statusCarreira;
-    }
-
-    public void setStatusCarreira(StatusCarreira statusCarreira) {
-        this.statusCarreira = statusCarreira;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
+
+    public Integer getAnoInicioAtividade() {
+        return anoInicioAtividade;
+    }
+
+    public StatusCarreira getStatusCarreira() {
+        return statusCarreira;
+    }
+
+
 }
