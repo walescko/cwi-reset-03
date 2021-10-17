@@ -26,8 +26,6 @@ public class AtorService{
         return ator;
     }
 
-    public void AnoInicioAtividade() throws AtorAnoInicioAtividadeException{
-
     }
 
 
