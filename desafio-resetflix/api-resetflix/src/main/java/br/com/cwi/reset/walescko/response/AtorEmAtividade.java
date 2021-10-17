@@ -1,4 +1,5 @@
 package br.com.cwi.reset.walescko.response;
 
-public class AtorEmATividade {
+public class AtorEmAtividade {
+
 }
