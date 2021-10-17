@@ -19,52 +19,57 @@ public class FilmeController {
 
     private static List<Filme> filmes = new ArrayList<>();
 
-    @GetMapping
-    public List<Filme> getFilme(){
-        return filmes;
-    }
+    //public List<Filme> getFilme(){
+      //  return filmes;
+    //}
 
-    @GetMapping("/{nome}")
-    public ResponseEntity<Filme> getById(@PathVariable String nome){
-        Filme filme = buscarFilmePeloNome(nome);
-        if (filme == null){
-            return ResponseEntity.notFound().build();
+    @PostMapping
+    public ResponseEntity<Filme> cadastrarFilme(@RequestBody Filme filme){
+        Filme filmeExistente = buscarFilme(filme.getTituloFilme());
+        if (filmeExistente != null){
+            return ResponseEntity.badRequest().build();
         }
+        filmes.add(filme);
         return ResponseEntity.ok(filme);
     }
 
-    private Filme buscarFilmePeloNome(String nome){
-        for (Filme filme : filmes){
-            if (filme.getTituloFilme().equals(nome)){
-                return filme;
-            }
-        }
-        return null;
+    @GetMapping
+    public List<Filme> consultarTodos(){
+        return filmes;
     }
 
-    @PostMapping
-    public Filme cadastrarFilme(@RequestBody Filme filme) {
-        filmes.add(filme);
-        return filme;
+    @GetMapping("/{tituloFilme}")
+    public Filme buscarFilmePeloNome(@PathVariable String tituloFilme) {
+        return buscarFilme(tituloFilme);
     }
 
-    @PutMapping("/filme/{nome}")
-    public void atualizarFilme(@RequestBody Filme filme){
-        Filme filmeCadastro = buscarFilmePeloNome(filme.getTituloFilme());
-        if (filmeCadastro != null){
-            filmes.remove(filmeCadastro);
-            filmes.add(filme);
-        }
-    }
-
-    @DeleteMapping
-    public void deletarFilme(@PathVariable String nome){
-        Filme filme = buscarFilmePeloNome(nome);
+    @DeleteMapping("/{tituloFilme}")
+    public void deletarFilme(@PathVariable String tituloFilme){
+        Filme filme = buscarFilmePeloNome(tituloFilme);
         if (filme != null){
             filmes.remove(filme);
         }
     }
 
+    @PutMapping
+    public Filme atualizarFilme(@RequestBody Filme filme){
+        Filme filmeExistente = buscarFilmePeloNome(filme.getTituloFilme());
+        if (filmeExistente != null){
+            filmes.remove(filmeExistente);
+            filmes.add(filme);
+            return filme;
+        }
+        return null;
+    }
+
+    private Filme buscarFilme(String tituloFilme){
+        for (Filme filme : filmes){
+            if (filme.getTituloFilme().equals(tituloFilme)){
+                return filme;
+            }
+        }
+        return null;
+    }
 
 
 //    Filme filme = new Filme("Poeira em Alto Mar", "Filme de Aventura", 144,
