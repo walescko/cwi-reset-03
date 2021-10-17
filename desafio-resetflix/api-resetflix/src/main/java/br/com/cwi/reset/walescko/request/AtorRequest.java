@@ -39,15 +39,6 @@ public class AtorRequest {
         System.out.println(this.statusCarreira);
         System.out.println(this.anoInicioAtividade);
     }
-
-
-//    public void AnoInicioAtividade() throws AtorAnoInicioAtividadeException {
-//        //LocalDate nascimento = Date.valueOf(dataNascimento);
-//        SimpleDateFormat anoNascimento = new SimpleDateFormat("yyyy");
-//        if (anoInicioAtividade < anoNascimento) {
-//            throw new AtorAnoInicioAtividadeException();
-//        }
-//    }
 }
 
 
