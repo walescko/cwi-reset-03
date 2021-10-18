@@ -1,12 +1,16 @@
 package br.com.cwi.reset.walescko.service;
 
-import br.com.cwi.reset.walescko.mensagemExceptions.CadastroDuplicadoException;
-import br.com.cwi.reset.walescko.mensagemExceptions.StatusCarreiraNaoInformadoException;
-import br.com.cwi.reset.walescko.mensagemExceptions.TipoDominioException;
+import br.com.cwi.reset.walescko.enums.StatusCarreira;
+import br.com.cwi.reset.walescko.mensagemExceptions.*;
 import br.com.cwi.reset.walescko.models.Ator;
 import br.com.cwi.reset.walescko.FakeDatabase;
 import br.com.cwi.reset.walescko.request.AtorRequest;
+import br.com.cwi.reset.walescko.response.AtorEmAtividade;
 import br.com.cwi.reset.walescko.validator.Validador;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class AtorService {
 
@@ -16,11 +20,11 @@ public class AtorService {
         this.fakeDatabase = fakeDatabase;
     }
 
-    public void criarAtor(AtorRequest atorRequest) {
+    public void criarAtor(AtorRequest atorRequest) throws Exception {
         new Validador().accept(atorRequest.getNome(), atorRequest.getDataNascimento(),
                 atorRequest.getAnoInicioAtividade(), TipoDominioException.ATOR);
 
-        if (atorRequest.getStatusCarreira() ==null){
+        if (atorRequest.getStatusCarreira() == null){
             throw new StatusCarreiraNaoInformadoException();
         }
 
@@ -39,4 +43,64 @@ public class AtorService {
 
         fakeDatabase.persisteAtor(ator);
     }
+
+    public List<AtorEmAtividade> listarAtoresEmAtividade(String filtroNome) throws Exception {
+        final List<Ator> atoresCadastrados = fakeDatabase.recuperaAtores();
+
+        if (atoresCadastrados.isEmpty()) {
+            throw new ListaVaziaException(TipoDominioException.ATOR.getSingular(), TipoDominioException.ATOR.getPlural());
+        }
+
+        final List<AtorEmAtividade> retorno = new ArrayList<>();
+
+        if (filtroNome != null) {
+            for (Ator ator : atoresCadastrados) {
+                final boolean containsFilter = ator.getNome().toLowerCase(Locale.ROOT).contains(filtroNome.toLowerCase(Locale.ROOT));
+                final boolean emAtividade = StatusCarreira.EM_ATIVIDADE.equals(ator.getStatusCarreira());
+                if (containsFilter && emAtividade) {
+                    retorno.add(new AtorEmAtividade(ator.getId(), ator.getNome(), ator.getDataNascimento()));
+                }
+            }
+        } else {
+            for (Ator ator : atoresCadastrados) {
+                final boolean emAtividade = StatusCarreira.EM_ATIVIDADE.equals(ator.getStatusCarreira());
+                if (emAtividade) {
+                    retorno.add(new AtorEmAtividade(ator.getId(), ator.getNome(), ator.getDataNascimento()));
+                }
+            }
+        }
+
+        if (retorno.isEmpty()) {
+            throw new FiltroNomeNaoEncontrado("Ator", filtroNome);
+        }
+
+        return retorno;
+    }
+
+    public Ator consultarAtor(Integer id) throws Exception {
+        if (id == null) {
+            throw new IdNaoInformado();
+        }
+
+        final List<Ator> atores = fakeDatabase.recuperaAtores();
+
+        for (Ator ator : atores) {
+            if (ator.getId().equals(id)) {
+                return ator;
+            }
+        }
+
+        throw new ConsultaIdInvalidoException(TipoDominioException.ATOR.getSingular(), id);
+    }
+
+    public List<Ator> consultarAtores() throws Exception {
+        final List<Ator> atores = fakeDatabase.recuperaAtores();
+
+        if (atores.isEmpty()) {
+            throw new ListaVaziaException(TipoDominioException.ATOR.getSingular(), TipoDominioException.ATOR.getPlural());
+        }
+
+        return atores;
+    }
+
 }
