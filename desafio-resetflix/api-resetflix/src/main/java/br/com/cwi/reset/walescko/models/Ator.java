@@ -13,13 +13,13 @@ public class Ator {
     protected Integer anoInicioAtividade;
     protected StatusCarreira statusCarreira;
 
-    public Ator(Integer id, String nome, LocalDate dataNascimento, Integer anoInicioAtividade,
-                StatusCarreira statusCarreira) {
+    public Ator(Integer id, String nome, LocalDate dataNascimento, StatusCarreira statusCarreira,
+                Integer anoInicioAtividade) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.anoInicioAtividade = anoInicioAtividade;
         this.statusCarreira = statusCarreira;
+        this.anoInicioAtividade = anoInicioAtividade;
     }
 
     public Integer getId() {
