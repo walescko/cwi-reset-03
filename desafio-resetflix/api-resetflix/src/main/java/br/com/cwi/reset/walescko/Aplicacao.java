@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Aplicacao {
 
-    public static void main (String [] args){
+    public static void main (String [] args) throws Exception {
 
         FakeDatabase fakeDatabase = new FakeDatabase();
 
@@ -21,7 +21,7 @@ public class Aplicacao {
         LocalDate dataNascimento = LocalDate.of(1968, Month.SEPTEMBER, 25);
         StatusCarreira statusCarreira = StatusCarreira.EM_ATIVIDADE;
         Integer anoInicioAtividade = 1986;
-        AtorRequest atorRequest = new AtorRequest(nome, dataNascimento, statusCarreira, anoInicioAtividade);
+        AtorRequest atorRequest = new AtorRequest(nome, dataNascimento,  statusCarreira, anoInicioAtividade);
 
         atorService.criarAtor(atorRequest);
 
