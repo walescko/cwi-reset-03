@@ -15,7 +15,7 @@ import java.util.List;
 public class EstudioController {
     private EstudioService estudioService;
 
-    private static List<Estudio> estudios = new ArrayList<>();
+//    private static List<Estudio> estudios = new ArrayList<>();
 
 
     public EstudioController() {
