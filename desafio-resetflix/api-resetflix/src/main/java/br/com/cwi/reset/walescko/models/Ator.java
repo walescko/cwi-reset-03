@@ -1,17 +1,16 @@
 package br.com.cwi.reset.walescko.models;
 
 import br.com.cwi.reset.walescko.enums.StatusCarreira;
-
+import java.util.Date;
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class Ator {
 
-    protected Integer id;
-    protected String nome;
-    protected LocalDate dataNascimento;
-    protected Integer anoInicioAtividade;
-    protected StatusCarreira statusCarreira;
+    private Integer id;
+    private String nome;
+    private LocalDate dataNascimento;
+    private Integer anoInicioAtividade;
+    private StatusCarreira statusCarreira;
 
     public Ator(Integer id, String nome, LocalDate dataNascimento, StatusCarreira statusCarreira,
                 Integer anoInicioAtividade) {

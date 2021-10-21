@@ -1,7 +1,5 @@
 package br.com.cwi.reset.walescko.models;
 
-import com.sun.jdi.IntegerValue;
-
 import java.time.LocalDate;
 
 public class Diretor {
