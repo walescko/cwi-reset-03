@@ -37,7 +37,12 @@ public class EstudioService {
     }
 
         public List<Estudio> consultarEstudios (String filtroNome) throws Exception {
+
+
             final List<Estudio> estudios = new ArrayList<>();
+            if (estudios.isEmpty()){
+                throw new ListaVaziaException(TipoDominioException.ESTUDIO.getSingular(), TipoDominioException.ESTUDIO.getPlural());
+            }
             return estudios;
         }
 
