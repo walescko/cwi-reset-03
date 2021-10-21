@@ -40,7 +40,7 @@ public class FakeDatabase {
     public void persisteEstudio(Estudio estudio) {
         estudios.add(estudio);
     }
-    public List<Estudio> recuperaEstudioss() {
+    public List<Estudio> recuperaEstudios() {
         return estudios;
     }
 

@@ -1,7 +1,6 @@
 package br.com.cwi.reset.walescko.controller;
 
 import br.com.cwi.reset.walescko.FakeDatabase;
-import br.com.cwi.reset.walescko.models.Ator;
 import br.com.cwi.reset.walescko.models.Diretor;
 import br.com.cwi.reset.walescko.request.DiretorRequest;
 import br.com.cwi.reset.walescko.service.DiretorService;
@@ -34,9 +33,9 @@ public class DiretorController {
     public List<Diretor> listarDiretores(String filtroNome) throws Exception{
         return this.diretorService.listarDiretores(filtroNome);
     }
-    
+
     @GetMapping(path = "{id}")
-    public Ator consultarDiretor(@PathVariable Integer id) throws Exception{
+    public Diretor consultarDiretor(@PathVariable Integer id) throws Exception{
         return this.diretorService.consultarDiretor(id);
     }
 }
