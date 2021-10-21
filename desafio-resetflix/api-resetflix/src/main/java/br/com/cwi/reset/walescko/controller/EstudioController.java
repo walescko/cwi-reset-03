@@ -1,6 +1,7 @@
 package br.com.cwi.reset.walescko.controller;
 
 import br.com.cwi.reset.walescko.FakeDatabase;
+import br.com.cwi.reset.walescko.mensagemExceptions.EstudioIdException;
 import br.com.cwi.reset.walescko.models.Estudio;
 import br.com.cwi.reset.walescko.request.EstudioRequest;
 import br.com.cwi.reset.walescko.service.EstudioService;
@@ -15,7 +16,7 @@ import java.util.List;
 public class EstudioController {
     private EstudioService estudioService;
 
-//    private static List<Estudio> estudios = new ArrayList<>();
+    private static List<Estudio> estudios = new ArrayList<>();
 
 
     public EstudioController() {
@@ -29,7 +30,7 @@ public class EstudioController {
     }
 
     @GetMapping
-    public List<Estudio> consultarEstudios(String filtroNome) throws Exception{
+    public List<Estudio> consultarEstudios(@RequestParam String filtroNome) throws Exception{
         return this.estudioService.consultarEstudios(filtroNome);
     }
 

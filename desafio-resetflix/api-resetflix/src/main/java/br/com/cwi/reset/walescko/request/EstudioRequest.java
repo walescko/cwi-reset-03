@@ -10,7 +10,7 @@ public class EstudioRequest {
     private LocalDate dataCriacao;
     private StatusAtividade statusAtividade;
 
-    public EstudioRequest(String nome, String descricao, LocalDate dataNascimento, LocalDate dataCriacao, StatusAtividade statusAtividade) {
+    public EstudioRequest(String nome, String descricao, LocalDate dataCriacao, StatusAtividade statusAtividade) {
         this.nome = nome;
         this.descricao = descricao;
         this.dataCriacao = dataCriacao;
