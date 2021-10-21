@@ -16,7 +16,6 @@ import java.util.List;
 public class AtorController {
 
     private AtorService atorService;
-    private FakeDatabase fakeDatabase;
 
     private static List<Ator> atores = new ArrayList<>();
 
@@ -40,4 +39,10 @@ public class AtorController {
     public List<AtorEmAtividade> listarAtoresEmAtividade(@RequestParam String filtroNome) throws Exception {
         return this.atorService.listarAtoresEmAtividade(filtroNome);
     }
+
+    @GetMapping(path = "{id}")
+    public Ator consultarAtor(@PathVariable Integer id) throws Exception{
+        return this.atorService.consultarAtor(id);
+    }
+
 }
