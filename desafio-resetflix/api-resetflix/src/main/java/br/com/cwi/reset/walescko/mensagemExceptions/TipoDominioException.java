@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public enum TipoDominioException {
 
     ATOR("ator", "atores"),
-    DIRETOR("diretor", "diretores");
+    DIRETOR("diretor", "diretores"),
+    ESTUDIO("estudio", "estudios");
 
     private final String singular;
     private final String plural;
