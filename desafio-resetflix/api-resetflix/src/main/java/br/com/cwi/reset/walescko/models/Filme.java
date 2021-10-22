@@ -11,21 +11,22 @@ public class Filme {
     private String nome;
     private LocalDate anoLancamento;
     private String capaFilme;
-    private List<Genero[]> genero; //listagem:Genero generos
+    private List<Genero[]> generos; //listagem:Genero generos
     private Diretor diretor;
     private List<PersonagemAtor[]> personagens;  //listagem de PersonagemAtor
     private String resumo;
     private Estudio estudio;
 
-    public Filme(Integer id, String nome, LocalDate anoLancamento, String capaFilme, List<Genero[]> genero, Diretor diretor, List<PersonagemAtor[]> personagens, Estudio estudio, String resumo) {
+    public Filme(Integer id, String nome, LocalDate anoLancamento, String capaFilme, List<Genero[]> generos,
+                 Estudio estudio, Diretor diretor, List<PersonagemAtor[]> personagens, String resumo) {
         this.id = id;
         this.nome = nome;
         this.anoLancamento = anoLancamento;
         this.capaFilme = capaFilme;
-        this.genero = genero;
+        this.generos = generos;
+        this.estudio = estudio;
         this.diretor = diretor;
         this.personagens = personagens;
-        this.estudio = estudio;
         this.resumo = resumo;
     }
 
@@ -45,8 +46,8 @@ public class Filme {
         return capaFilme;
     }
 
-    public List<Genero[]> getGenero() {
-        return genero;
+    public List<Genero[]> getGeneros() {
+        return generos;
     }
 
     public Diretor getDiretor() {
