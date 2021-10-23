@@ -2,42 +2,18 @@ package br.com.cwi.reset.projeto1.repository;
 
 import br.com.cwi.reset.projeto1.domain.Pet;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class PetRepository {
+public interface PetRepository {
 
-      private List<Pet> pets = new ArrayList<>();
+    Pet buscarPetPeloNome(String nome);
 
-    public Pet buscarPetPeloNome(String nome) {
-        for (Pet pet : pets) {
-            if (pet.getNome().equals(nome)) {
-                return pet;
-            }
-        }
-        return null;
-    }
+    Pet salvar(Pet pet);
 
-    public Pet salvar(Pet pet) {
-        pets.add(pet);
-        return pet;
-    }
+    void deletar(Pet pet);
 
-    public void deletar(Pet pet) {
-        pets.remove(pet);
-    }
+    Pet atualizarPet(Pet pet);
 
-    public Pet atualizarPet(Pet pet) {
-        Pet petExistente = buscarPetPeloNome(pet.getNome());
+    List<Pet> findAll();
 
-        if (petExistente != null) {
-            pets.remove(petExistente);
-            pets.add(pet);
-        }
-            return pet;
-    }
-
-    public List<Pet> findAll() {
-        return pets;
-    }
 }
