@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,8 +25,8 @@ public class PetController {
     }
 
     @GetMapping("/{nome}")
-    public ResponseEntity<Pet> getByNome(@PathVariable String nome) throws PetNaoExistenteException {
-        return ResponseEntity.ok(service.buscarPetPeloNome(nome));
+    public Pet getByNome(@PathVariable String nome) throws PetNaoExistenteException {
+        return service.buscarPetPeloNome(nome);
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -35,7 +36,7 @@ public class PetController {
 
     @PutMapping
     public Pet atualizarPet(@RequestBody Pet pet) throws PetNaoExistenteException {
-        return service.atualizarPet(pet);
+        return service.atualizar(pet);
     }
 
     @DeleteMapping("/{nome}")
