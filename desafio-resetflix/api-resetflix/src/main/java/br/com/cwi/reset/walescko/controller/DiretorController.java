@@ -16,9 +16,6 @@ public class DiretorController {
 
     private DiretorService diretorService;
 
-    private static List<Diretor> diretores = new ArrayList<>();
-
-
     public DiretorController() {
         this.diretorService = new DiretorService(FakeDatabase.getInstance());
     }

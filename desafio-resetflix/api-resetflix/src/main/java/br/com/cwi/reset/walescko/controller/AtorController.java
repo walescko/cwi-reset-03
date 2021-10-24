@@ -17,9 +17,6 @@ public class AtorController {
 
     private AtorService atorService;
 
-    private static List<Ator> atores = new ArrayList<>();
-
-
     public AtorController() {
         this.atorService = new AtorService(FakeDatabase.getInstance());
     }
