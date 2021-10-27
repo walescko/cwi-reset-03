@@ -21,7 +21,7 @@ public class FilmeService {
         this.diretorService = new DiretorService(fakeDatabase);
         this.estudioService = new EstudioService(fakeDatabase);
         this.atorService = new AtorService(fakeDatabase);
-        this.personagemAtorService = new PersoangemAtorService(fakeDatabase);
+        this.personagemAtorService = new PersonagemAtorService(fakeDatabase);
     }
 
     public void criarFilme(FilmeRequest filmeRequest) throws Exception{

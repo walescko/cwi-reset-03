@@ -1,7 +1,6 @@
 package br.com.cwi.reset.walescko.request;
 
 import java.time.LocalDate;
-import java.util.Locale;
 
 public class DiretorRequest {
 

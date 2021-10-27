@@ -16,16 +16,17 @@ public class Diretor {
     protected String nome;
     protected LocalDate dataNascimento;
     protected Integer anoInicioAtividade;
+    private Object diretor;
 
-    public Diretor(){
-
-    }
-
+    public Diretor () {}
 
     public Diretor(String nome, LocalDate dataNascimento, Integer anoInicioAtividade) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.anoInicioAtividade = anoInicioAtividade;
+    }
+
+    public Diretor(Integer idGerado, String nome, LocalDate dataNascimento, Integer anoInicioAtividade) {
     }
 
     public Integer getId() {
@@ -64,7 +65,8 @@ public class Diretor {
     public boolean equals(Object o){
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        return (Objects.equals(id, diretor.id) && Objects.equals(nome, diretor.nome) && Objects.equals(dataNascimento, diretor.dataNascimento) Objects.equals(anoInicioAtividade, diretor.anoInicioAtividade);
+        Diretor diretor = (Diretor) o;
+        return Objects.equals(id, diretor.id) && Objects.equals(nome, diretor.nome) && Objects.equals(dataNascimento, diretor.dataNascimento) && Objects.equals(anoInicioAtividade, diretor.anoInicioAtividade);
     }
 
     @Override

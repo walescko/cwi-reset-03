@@ -3,7 +3,6 @@ package br.com.cwi.reset.walescko.models;
 import br.com.cwi.reset.walescko.enums.StatusCarreira;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -19,7 +18,7 @@ public class Ator {
     private StatusCarreira statusCarreira;
     private Integer anoInicioAtividade;
 
-    public Ator (){
+    public Ator(Integer idGerado, String nome, LocalDate dataNascimento, StatusCarreira statusCarreira, Integer anoInicioAtividade){
 
     }
     public Ator(String nome, LocalDate dataNascimento, StatusCarreira statusCarreira,
@@ -50,9 +49,6 @@ public class Ator {
         return anoInicioAtividade;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
 
 
@@ -69,7 +65,9 @@ public class Ator {
 
     public void setId(Integer id){ this.id = id;}
 
-    public setNome(String nome) {this.nome = nome;}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public void setDataNascimento(LocalDate dataNascimento) { this.dataNascimento = dataNascimento;}
 
