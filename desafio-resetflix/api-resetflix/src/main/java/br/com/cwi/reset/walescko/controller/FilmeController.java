@@ -7,6 +7,7 @@ import br.com.cwi.reset.walescko.service.FilmeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class FilmeController{
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void criarFilme(@RequestBody FilmeRequest filmeRequest) throws Exception{
+    public void criarFilme(@RequestBody @Valid FilmeRequest filmeRequest) throws Exception{
         filmeService.criarFilme(filmeRequest);
     }
 

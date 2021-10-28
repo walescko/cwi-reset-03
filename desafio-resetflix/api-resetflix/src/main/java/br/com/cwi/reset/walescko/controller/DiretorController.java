@@ -7,6 +7,7 @@ import br.com.cwi.reset.walescko.service.DiretorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class DiretorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void cadastrarDiretor(@RequestBody DiretorRequest diretorRequest) throws Exception {
+    public void cadastrarDiretor(@RequestBody @Valid DiretorRequest diretorRequest) throws Exception {
         this.diretorService.cadastrarDiretor(diretorRequest);
     }
 
