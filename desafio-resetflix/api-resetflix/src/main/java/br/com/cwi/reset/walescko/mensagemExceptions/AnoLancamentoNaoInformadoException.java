@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class AnoLancamentoNaoInformadoException extends CampoNaoInformadoException{
-    public AnoInicioAtividadeNaoInformadoException(){
+    public AnoLancamentoNaoInformadoException(){
         super("ano Lancamento");
     }
 }
