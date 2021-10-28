@@ -4,9 +4,11 @@ import br.com.cwi.reset.walescko.enums.StatusCarreira;
 import br.com.cwi.reset.walescko.mensagemExceptions.*;
 import br.com.cwi.reset.walescko.models.Ator;
 import br.com.cwi.reset.walescko.FakeDatabase;
+import br.com.cwi.reset.walescko.repository.AtorRepository;
 import br.com.cwi.reset.walescko.request.AtorRequest;
 import br.com.cwi.reset.walescko.response.AtorEmAtividade;
 import br.com.cwi.reset.walescko.validator.Validador;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +16,8 @@ import java.util.Locale;
 
 public class AtorService {
 
-    private FakeDatabase fakeDatabase;
-
-    public AtorService(FakeDatabase fakeDatabase) {
-        this.fakeDatabase = fakeDatabase;
-    }
+    @Autowired
+    private AtorRepository repository;
 
     public void criarAtor(AtorRequest atorRequest) throws Exception {
         new Validador().accept(atorRequest.getNome(), atorRequest.getDataNascimento(),
@@ -28,7 +27,8 @@ public class AtorService {
             throw new StatusCarreiraNaoInformadoException();
         }
 
-        final List<Ator> atoresCadastrados = fakeDatabase.recuperaAtores();
+//        return repository.save(ator);
+//        final List<Ator> atoresCadastrados = fakeDatabase.recuperaAtores();
 
         for (Ator atorCadastrado : atoresCadastrados){
             if (atorCadastrado.getNome().equalsIgnoreCase(atorRequest.getNome())){
@@ -41,7 +41,8 @@ public class AtorService {
         final Ator ator = new Ator(idGerado, atorRequest.getNome(), atorRequest.getDataNascimento(), atorRequest.getStatusCarreira(),
                 atorRequest.getAnoInicioAtividade());
 
-        fakeDatabase.persisteAtor(ator);
+        return repository.save(ator);
+//        fakeDatabase.persisteAtor(ator);
     }
 
     public List<AtorEmAtividade> listarAtoresEmAtividade(String filtroNome) throws Exception {

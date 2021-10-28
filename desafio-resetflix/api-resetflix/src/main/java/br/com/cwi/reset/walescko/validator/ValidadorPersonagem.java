@@ -1,5 +1,6 @@
 package br.com.cwi.reset.walescko.validator;
 
+import br.com.cwi.reset.walescko.mensagemExceptions.DescricaoPersonagemNaoInformada;
 import br.com.cwi.reset.walescko.mensagemExceptions.IdNaoInformado;
 import br.com.cwi.reset.walescko.mensagemExceptions.NomeNaoInformadoException;
 import br.com.cwi.reset.walescko.request.PersonagemRequest;
@@ -14,7 +15,7 @@ public class ValidadorPersonagem {
         }
 
         if (isNull(personagemRequest.getDescricaoPersonagem())){
-            throw new DescricaoPErsongagemNaoInformadoException();
+            throw new DescricaoPersonagemNaoInformada();
         }
 
         if (isNull(personagemRequest.getIdAtor())){
