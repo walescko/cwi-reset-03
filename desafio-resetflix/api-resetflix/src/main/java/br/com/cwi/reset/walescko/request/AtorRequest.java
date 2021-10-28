@@ -2,13 +2,21 @@ package br.com.cwi.reset.walescko.request;
 
 import br.com.cwi.reset.walescko.enums.StatusCarreira;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.time.LocalDate;
 
 public class AtorRequest {
 
+    @NotNull(message = "Campo obrigatório não informado. Por favor informar o nome")
     private String nome;
+    @NotNull(message = "Campor obrigatório não informado. Por favor informar a data de nascimento.")
+    @Past(message = "Pessoas nascida no futuro? Por Favor, verifique a data de nascimento.")
     private LocalDate dataNascimento;
+    @NotNull(message = "Informar o estadus de Carreira do Ator.")
     private StatusCarreira statusCarreira;
+    @NotNull(message = "Campo obrigatório não informado, Por favor, informe o ano de inicio de atividade.")
+
     private Integer anoInicioAtividade;
 
     public AtorRequest(String nome, LocalDate dataNascimento, StatusCarreira statusCarreira, Integer anoInicioAtividade) {
