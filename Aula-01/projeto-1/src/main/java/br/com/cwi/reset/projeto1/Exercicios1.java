@@ -6,51 +6,57 @@ import java.util.List;
 public class Exercicios1 {
 
     public Integer somarLista(List<Integer> numeros) {
-        int soma = 0;
-        for (int i =0 ; i < numeros.size(); i++){
-            soma += numeros.get(i);
+
+        Integer sum = 0;
+        for (Integer num : numeros) {
+            sum += num;
         }
-        return soma;
+        return sum;
     }
 
     public Double calcularMedia(List<Integer> numeros) {
-        double media = (double)somarLista(numeros) / numeros.size();
-        return media;
+        if (numeros.size() == 0){
+            throw new ArithmeticException("Erro Matemático");
+//            return 0.0;
+        }
+
+        return (double) somarLista(numeros) / numeros.size();
     }
 
     public Integer obterMaiorNumero(List<Integer> numeros) {
-        int maior =0;
-        for (int i = 0; i < numeros.size(); i++){
-            if (maior <= numeros.get(i)){
-                maior = numeros.get(i);
+        Integer maior = numeros.get(0);
+
+        for (Integer num : numeros) {
+            if (num > maior) {
+                maior = num;
             }
         }
-
         return maior;
     }
 
-    public String obterPalavraInvertida(String palavra) { //baseado na solução apresentada.
-        String inverse = "";
-        for (int i = palavra.length()-1; i >= 0; i--){
-            inverse += palavra.charAt(i);
+    public String obterPalavraInvertida(String palavra) {
+        String invertida = "";
+
+        for (int i = palavra.length() - 1; i >= 0; i--) {
+            invertida += palavra.charAt(i);
         }
-        return inverse;
+
+        return invertida;
     }
 
     public List<Integer> ordenarLista(List<Integer> numeros) {
-        Integer[] pos = numeros.toArray(new Integer[numeros.size()]);
-        Integer auxiliar = 0;
-        for (int i = 0; i < numeros.size()-1; i++) {
+        Integer[] ints = numeros.toArray(new Integer[numeros.size()]);
+        Integer aux;
+        for (int i = 0; i < numeros.size() - 1; i++) {
             for (int j = i + 1; j < numeros.size(); j++) {
-
-                if (pos[i] > pos[j]) {
-                    auxiliar = pos[i];
-                    pos[i] = pos[j];
-                    pos[j] = auxiliar;
+                if (ints[j] < ints[i]) {
+                    aux = ints[j];
+                    ints[j] = ints[i];
+                    ints[i] = aux;
                 }
             }
         }
-        return Arrays.asList(pos);
+        return Arrays.asList(ints);
     }
 }
 

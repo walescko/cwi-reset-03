@@ -25,7 +25,7 @@ public class TesteExercicios {
         System.out.println("Numeros ordenados: ");
 
         for (Integer numero : numerosOrdenados) {
-            System.out.print(numero + " ");
+            System.out.println(numero);
         }
     }
 }
